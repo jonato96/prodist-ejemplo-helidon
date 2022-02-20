@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+ext{
+    helidonVersion = '2.4.2'
+}
+
+dependencies {
+    //base
+    implementation platform("io.helidon:helidon-dependencies:${project.helidonVersion}")
+    //servidor
+    implementation 'io.helidon.microprofile.server:helidon-microprofile-server'
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}
